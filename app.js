@@ -5,6 +5,7 @@ const express = require("express");
 const qrcode = require("qrcode");
 const http = require("http");
 const { response } = require("express");
+const port = process.env.PORT || 5000;
 
 const app = express();
 const server = http.createServer(app);
@@ -81,6 +82,6 @@ app.post("/send-message", (req, res) => {
     });
 });
 
-server.listen(8000, function () {
+server.listen(port, function () {
   console.log("app runing ");
 });
