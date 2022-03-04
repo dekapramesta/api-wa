@@ -5,7 +5,7 @@ const express = require("express");
 const qrcode = require("qrcode");
 const http = require("http");
 const { response } = require("express");
-const port = process.env.PORT || 5000;
+// const port = process.env.PORT || 5000;
 
 const app = express();
 const server = http.createServer(app);
@@ -21,19 +21,6 @@ app.get("/", (req, res) => {
   res.sendFile("index.html", { root: __dirname });
 });
 const client = new Client({
-  puppeteer: {
-    headless: true,
-    args: [
-      "--no-sandbox",
-      "--disable-setuid-sandbox",
-      "--disable-dev-shm-usage",
-      "--disable-accelerated-2d-canvas",
-      "--no-first-run",
-      "--no-zygote",
-      "--single-process", // <- this one doesn't works in Windows
-      "--disable-gpu",
-    ],
-  },
   authStrategy: new LegacySessionAuth({
     session: sessionData,
   }),
@@ -49,7 +36,7 @@ client.on("authenticated", (session) => {
 });
 
 client.on("ready", () => {
-  console.log("Client isu ready!");
+  console.log("Client i ready!");
 });
 
 client.on("message", (msg) => {
@@ -95,6 +82,6 @@ app.post("/send-message", (req, res) => {
     });
 });
 
-server.listen(port, function () {
+server.listen(3000, function () {
   console.log("app runing ");
 });
