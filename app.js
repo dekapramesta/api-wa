@@ -81,6 +81,6 @@ app.post("/send-message", (req, res) => {
     });
 });
 
-server.listen(3000, function () {
+server.listen(8000, function () {
   console.log("app runing ");
 });
