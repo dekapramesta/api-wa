@@ -49,7 +49,7 @@ client.on("authenticated", (session) => {
 });
 
 client.on("ready", () => {
-  console.log("Client i ready!");
+  console.log("Client isu ready!");
 });
 
 client.on("message", (msg) => {
